@@ -15,10 +15,14 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;//密码模式需要注入认证管理器
 
     @Autowired
     public PasswordEncoder passwordEncoder;
+
+//    基本的SpringSecurity的配置，开启Spring Security的Web安全功能，
+//    填了一个用户信息，所有资源必须经过授权才可以访问
+//    AuthorizationConfig授权服务器配置
 
     //配置客户端
     @Override
@@ -27,14 +31,14 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         clients.inMemory()
                 .withClient("client-a")
                   .secret(passwordEncoder.encode("client-a-secret"))
-                  .authorizedGrantTypes("password")
+                  .authorizedGrantTypes("password")//主要是这里，开始了密码模式
                   .scopes("read_scope");
         //@formatter:on
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager);
+        endpoints.authenticationManager(authenticationManager);//密码模式必须添加authenticationManager
     }
 
     @Override
