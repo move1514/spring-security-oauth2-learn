@@ -27,6 +27,8 @@ import java.rmi.Remote;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+    //当oauthserver和resourceserver不在一个应用程序时，访问resource，会自动转交到oauthserver的/oauth/check_token，获得access_token的验证结果。
     @Bean
     public RemoteTokenServices remoteTokenServices() {
         final RemoteTokenServices tokenServices = new RemoteTokenServices();
