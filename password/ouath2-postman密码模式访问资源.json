@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "852920c7-6049-4fe6-b17f-0aea878f3ece",
+		"name": "ouath2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "oauth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "client-a-secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client-a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "xmlhttprequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token?username=hellxz&password=xyz&scope=read_scope&grant_type=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "hellxz"
+						},
+						{
+							"key": "password",
+							"value": "xyz"
+						},
+						{
+							"key": "scope",
+							"value": "read_scope"
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				},
+				"description": "asdasd"
+			},
+			"response": []
+		},
+		{
+			"name": "user/hellxz001资源获取",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "aad258b4-a84b-4148-9e1d-eb9c54e0cab1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/user/hellxz001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"user",
+						"hellxz001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "common/index Copy 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJyZWNpcGUiLCJzdWIiOiJ1c2VySW5mbyIsIm5vd190b2tlbiI6Im9yZC5hY2Nlc3NfdG9rZW5fbm93LmJmYjkzNDIzMmFkZjRjYjhiOTFhIiwiYWNjb3VudF9uYW1lIjoiYWRtaW4xIiwiZXhwaXJlX3RpbWUiOiJvcmQuYWNjZXNzX3Rva2VuX3RpbWUuMmMxZDYzYzJhZjNjNDk1Zjg5YjciLCJ0ZWxlcGhvbmUiOiIyc2VCb3dCWXc3YiIsImV4cCI6MzExMjAwMjQzMjk1OX0.szJMRCv8Y3OP3IV4Q7hKpmIvTQXKD-gOeB7uLmdHXLI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://81.68.249.179/api/recipe/use/info",
+					"protocol": "http",
+					"host": [
+						"81",
+						"68",
+						"249",
+						"179"
+					],
+					"path": [
+						"api",
+						"recipe",
+						"use",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/common/inner",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJyZWNpcGUiLCJzdWIiOiJ1c2VySW5mbyIsIm5vd190b2tlbiI6Im9yZC5hY2Nlc3NfdG9rZW5fbm93LjRjY2M0ZWRiZDUxZTQzMjhiMTU3IiwiYWNjb3VudF9uYW1lIjoiYWRtaW4iLCJleHBpcmVfdGltZSI6Im9yZC5hY2Nlc3NfdG9rZW5fdGltZS44YTNhNzUyNGJmMTc0ZWMyOThhMCIsInRlbGVwaG9uZSI6IjEyMzQ1NiIsImV4cCI6MzExMjAwMTQ5NzI0M30.kY3_zGXP-Ch8MHMavTSGuCB5uxCn0s5MzJ9HNRnBO3A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/common/inner",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"common",
+						"inner"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fd5fc8b7-aa77-4a50-8fd9-7f4933e044fd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "83365bd9-dcd7-46a1-941f-fd9e4bdf5d68",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

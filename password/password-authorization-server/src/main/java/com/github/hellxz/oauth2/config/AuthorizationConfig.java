@@ -46,4 +46,6 @@ public class AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
         security.allowFormAuthenticationForClients()
                 .checkTokenAccess("isAuthenticated()");
     }
+
+
 }

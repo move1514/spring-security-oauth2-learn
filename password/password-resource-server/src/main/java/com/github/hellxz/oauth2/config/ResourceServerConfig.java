@@ -40,8 +40,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public RemoteTokenServices remoteTokenServices() {
         final RemoteTokenServices tokenServices = new RemoteTokenServices();
+        //设置客户端id与secret，注意：client_secret值不能使用passwordEncoder加密！
         tokenServices.setClientId("client-a");
         tokenServices.setClientSecret("client-a-secret");
+        //设置授权服务器check_token端点完整地址
         tokenServices.setCheckTokenEndpointUrl("http://localhost:8080/oauth/check_token");
         return tokenServices;
     }
@@ -67,7 +69,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         //•never - 框架永远不会创建会话本身，但如果它已经存在，它将使用一个
         //•stateless - Spring Security不会创建或使用任何会话(默认)
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
-        //所有请求需要认证
+        //所有请求需要认证//所有请求必须授权
         http.authorizeRequests().anyRequest().authenticated();
     }
 }
